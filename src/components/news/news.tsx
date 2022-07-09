@@ -2,6 +2,9 @@ import React from "react";
 import { Article } from "./newsSlice";
 import { Col,Card } from "react-bootstrap";
 
+// News Component
+// Using react-bootstrap
+
 export function News(article: Article) {
   return (
     <Col md={4} className="my-2">

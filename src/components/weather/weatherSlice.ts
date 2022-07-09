@@ -3,6 +3,8 @@ import { RootState } from '../../app/store';
 import { LocationInfo } from './locationSlice';
 import { fetchWeather } from './weatherAPI';
 
+// Weather Interfaces
+
 export type WeatherInfo = {
     main: string;
     icon: string;

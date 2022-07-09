@@ -9,7 +9,7 @@ import {
 import { News } from "./news";
 import { Search } from "./searchBar";
 
-import { Container, Row, Alert, Col } from "react-bootstrap";
+import { Container, Row, Alert } from "react-bootstrap";
 
 export function NewsList() {
   const news = useAppSelector(selectNews);
@@ -34,6 +34,8 @@ export function NewsList() {
     dispatch(loadNextPage());
   }
 
+//   if failed to load news, show error message in Alert
+
   if (news.status === "failed") {
     return (
       <Container>
@@ -47,6 +49,8 @@ export function NewsList() {
       </Container>
     );
   }
+
+//   if news is loaded and there is no error, show news list
 
   return (
     <Container>

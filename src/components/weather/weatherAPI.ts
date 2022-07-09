@@ -1,5 +1,6 @@
 import { LocationInfo } from "./locationSlice";
 import { WeatherInfo } from "./weatherSlice";
+import axios from "axios";
 
 const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 
@@ -7,21 +8,21 @@ const apiKey = process.env.REACT_APP_WEATHER_API_KEY;
 export function fetchWeather(location: LocationInfo) {
 
     return new Promise<{ data: WeatherInfo }>((resolve, reject) => {
-        fetch(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`)
-            .then(res => res.json())
+
+        axios.get(`https://api.openweathermap.org/data/2.5/weather?units=metric&lat=${location.latitude}&lon=${location.longitude}&appid=${apiKey}`)       
             .then(
                 (result) => {
-                    if (result.cod === 200) {
+                    if (result.status === 200) {
                         var weatherInfo = {
-                            main: result.weather[0].main,
-                            icon: result.weather[0].icon,
-                            place: result.name,
-                            temp: result.main.temp,
-                            feels_like: result.main.feels_like,
-                            temp_min: result.main.temp_min,
-                            temp_max: result.main.temp_max,
-                            pressure: result.main.pressure,
-                            humidity: result.main.humidity,
+                            main: result.data.weather[0].main,
+                            icon: result.data.weather[0].icon,
+                            place: result.data.name,
+                            temp: result.data.main.temp,
+                            feels_like: result.data.main.feels_like,
+                            temp_min: result.data.main.temp_min,
+                            temp_max: result.data.main.temp_max,
+                            pressure: result.data.main.pressure,
+                            humidity: result.data.main.humidity,
                         }
                         resolve({ data: weatherInfo })
                     }
@@ -33,6 +34,9 @@ export function fetchWeather(location: LocationInfo) {
                     reject(new Error("Could not retrieve weather data"))
                 }
             )
+
+
+        
     }
     );
 }

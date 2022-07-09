@@ -9,21 +9,12 @@ import {
   setQueryState,
 } from "./newsSlice";
 import { Container, Form, Row, Col, Button } from "react-bootstrap";
+
+// Icons for search and clear search
+
 import { IoSearchCircle,IoCloseCircle } from "react-icons/io5";
 
-const languages = [
-  {
-    value: "ar",
-    label: "Arabic",
-  },
-  {
-    value: "en",
-    label: "English",
-  },
-];
-
 export function Search() {
-  const [openSearch, setOpenSearch] = useState(false);
   const [query, setQuery] = useState("");
   const [language, setLanguage] = useState("en");
 
@@ -60,9 +51,13 @@ export function Search() {
     dispatch(fetchPopularNews({ language: event.target.value, page: 1 }));
   };
 
+//   search query and language inputs
+
   return (
+    
     <Container className="my-5">
       <Row>
+        
         <Form.Group as={Col} xl={8} md={8} sm={8} className="mb-3">
           <Form.Control
             type="text"

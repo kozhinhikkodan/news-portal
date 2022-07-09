@@ -2,6 +2,8 @@ import { createSlice, createAsyncThunk, PayloadAction } from '@reduxjs/toolkit';
 import { AppThunk, RootState } from '../../app/store';
 import { fetchNewsByPopularity, fetchNewsWithQuery } from './newsAPI';
 
+// define and export interfaces for all 
+
 export interface Article {
     source: string;
     author: string;

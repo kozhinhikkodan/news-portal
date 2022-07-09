@@ -1,6 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import { RootState } from '../../app/store';
 
+// get user location
+
 export type LocationInfo = {
     latitude: number | undefined;
     longitude: number | undefined;

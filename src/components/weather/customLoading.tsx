@@ -1,12 +1,12 @@
 import React from "react";
-import { Container, Row, Alert, Col } from "react-bootstrap";
+import { Row } from "react-bootstrap";
 import { AiOutlineLoading3Quarters } from "react-icons/ai";
 
-export function CustomLoading(value: string) {
+export function CustomLoading(message: string) {
   return (
     <Row>
       <AiOutlineLoading3Quarters />
-      <p>Loading {value}</p>
+      <p>Loading {message}</p>
     </Row>
   );
 }
