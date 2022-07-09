@@ -6,6 +6,9 @@ import { store } from './app/store';
 store.dispatch(getLocation());
 
 function App() {
+
+  // Using react-bootstrap 
+
   return (
     <div className="App">
       <Weather />

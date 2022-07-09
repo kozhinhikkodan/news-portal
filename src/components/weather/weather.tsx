@@ -3,18 +3,18 @@ import { useAppSelector, useAppDispatch } from "../../app/hooks";
 import { selectLocation } from "./locationSlice";
 import { getWeather, selectWeather } from "./weatherSlice";
 import {
-  Container,
-  Form,
   Row,
   Col,
-  Button,
   Alert,
   Card,
 } from "react-bootstrap";
 import { CustomLoading } from "./customLoading";
 
 export function Weather() {
-  // const classes = useStyles();
+
+    // User location fetched from the browser
+    // and stored in the state
+
   const location = useAppSelector(selectLocation);
   const weather = useAppSelector(selectWeather);
   const dispatch = useAppDispatch();
@@ -37,7 +37,10 @@ export function Weather() {
     );
   }
   if (location.status === "loaded" && weather.status === "loaded") {
-    console.log(weather.weatherInfo);
+
+
+  // Using Row , Card from react-bootstrap 
+
     return (
       <div>
         <Row>
