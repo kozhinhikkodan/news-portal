@@ -38,7 +38,6 @@ export function Search() {
   }
 
   function handleCancel() {
-    setOpenSearch(false);
     dispatch(clearNews());
     dispatch(clearQuery());
     dispatch(fetchPopularNews({ language: language, page: 1 }));
