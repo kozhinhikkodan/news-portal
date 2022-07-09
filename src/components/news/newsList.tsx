@@ -7,6 +7,8 @@ import {
   selectNews,
 } from "./newsSlice";
 import { News } from "./news";
+import { Search } from "./searchBar";
+
 import { Container, Row, Alert, Col } from "react-bootstrap";
 
 export function NewsList() {
@@ -45,6 +47,7 @@ export function NewsList() {
 
   return (
     <Container>
+        <Search/>
       <Row>
           {news.articles.map((article, index) => (
               <News
@@ -57,9 +60,6 @@ export function NewsList() {
                 publishedAt={article.publishedAt}
               />
           ))}
-        {/* {news.status === 'loading' &&
-                // CustomLoading('news')
-            } */}
       </Row>
     </Container>
   );
