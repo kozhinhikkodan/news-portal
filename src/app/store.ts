@@ -1,12 +1,12 @@
 import { configureStore, ThunkAction, Action } from '@reduxjs/toolkit';
-// import locationReducer from '../features/location/locationSlice';
+import locationReducer from '../components/weather/locationSlice';
 import newsReducer from '../components/news/newsSlice';
-// import weatherReducer from '../features/weather/weatherSlice';
+import weatherReducer from '../components/weather/weatherSlice';
 
 export const store = configureStore({
   reducer: {
-    // location: locationReducer,
-    // weather: weatherReducer,
+    location: locationReducer,
+    weather: weatherReducer,
     news: newsReducer,
   },
 });

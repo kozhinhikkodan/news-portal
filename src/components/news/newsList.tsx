@@ -36,30 +36,34 @@ export function NewsList() {
 
   if (news.status === "failed") {
     return (
-      <Row>
-        <Alert variant="danger">
-          <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
-          <p>{news.error}</p>
-        </Alert>
-      </Row>
+      <Container>
+        <Search />
+        <Row>
+          <Alert variant="danger">
+            <Alert.Heading>Oh snap! You got an error!</Alert.Heading>
+            <p>{news.error}</p>
+          </Alert>
+        </Row>
+      </Container>
     );
   }
 
   return (
     <Container>
-        <Search/>
+      <Search />
       <Row>
-          {news.articles.map((article, index) => (
-              <News
-                source={article.source}
-                author={article.author}
-                title={article.title}
-                description={article.description}
-                url={article.url}
-                urlToImage={article.urlToImage}
-                publishedAt={article.publishedAt}
-              />
-          ))}
+        {news.articles.map((article, index) => (
+          <News
+            key={index}
+            source={article.source}
+            author={article.author}
+            title={article.title}
+            description={article.description}
+            url={article.url}
+            urlToImage={article.urlToImage}
+            publishedAt={article.publishedAt}
+          />
+        ))}
       </Row>
     </Container>
   );

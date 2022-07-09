@@ -13,15 +13,15 @@ export function fetchNewsWithQuery(query: string, language: string, page: number
                     var articles = [];
                     if (result.totalResults > 0) {
                         
-                        articles = result.articles.map((ele: { source: any; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; }) => {
+                        articles = result.articles.map((article: { source: any; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; }) => {
                             return {
-                                source: ele.source.name,
-                                author: ele.author,
-                                title: ele.title,
-                                description: ele.description,
-                                url: ele.url,
-                                urlToImage: ele.urlToImage,
-                                publishedAt: Date.parse(ele.publishedAt),
+                                source: article.source.name,
+                                author: article.author,
+                                title: article.title,
+                                description: article.description,
+                                url: article.url,
+                                urlToImage: article.urlToImage,
+                                publishedAt: Date.parse(article.publishedAt),
                             }
                         });
                         resolve({ data: articles, page: page })
@@ -47,15 +47,15 @@ export function fetchNewsByPopularity(language: string, page: number) {
                 (result) => {
                     var articles = [];
                     if (result.totalResults > 0) {
-                        articles = result.articles.map((ele: { source: any; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; }) => {
+                        articles = result.articles.map((article: { source: any; author: string; title: string; description: string; url: string; urlToImage: string; publishedAt: string; }) => {
                             return {
-                                source: ele.source.name,
-                                author: ele.author,
-                                title: ele.title,
-                                description: ele.description,
-                                url: ele.url,
-                                urlToImage: ele.urlToImage,
-                                publishedAt: Date.parse(ele.publishedAt),
+                                source: article.source.name,
+                                author: article.author,
+                                title: article.title,
+                                description: article.description,
+                                url: article.url,
+                                urlToImage: article.urlToImage,
+                                publishedAt: Date.parse(article.publishedAt),
                             }
                         });
                         resolve({ data: articles , page: page})
